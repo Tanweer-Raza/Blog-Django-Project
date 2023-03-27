@@ -25,7 +25,8 @@ class Author(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100)
     excerpt =models.CharField(max_length=500)
-    image_name = models.CharField(max_length=80)
+    #image_name = models.CharField(max_length=80)
+    image = models.ImageField(upload_to="post", null =True)         # Here post is subfolde name in main folder uploads
     date = models.DateField(auto_now=True)
     content = models.TextField(validators=[MinLengthValidator(10)])
     slug = models.SlugField(unique=True, default="",blank=True,
